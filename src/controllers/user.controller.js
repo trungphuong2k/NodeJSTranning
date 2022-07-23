@@ -8,6 +8,6 @@ export async function create(req, res) {
         const users = createUser(user);
         return res.json(respondSuccess(users));
     } catch (error) {
-        return res.json();
+        return res.json(error);
     }
 }
