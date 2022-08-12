@@ -1,11 +1,20 @@
-import { Router } from 'express';
-import { create } from '../controllers/user.controller';
-import { validCreateUser } from '../middleware/user.validation';
+const { authJwt } = require('../middleware/authJwt');
+const controller = require('../controllers/user.controller');
 
-const router = Router();
+module.exports = function (app) {
+    app.get('/all', controller.allAccess);
 
-router
-    .route('/')
-    .post(validCreateUser, create);
+    // app.get('/api/test/user', [authJwt.verifyToken], controller.userBoard);
 
-export default router;
+    // app.get(
+    //     '/api/test/mod',
+    //     [authJwt.verifyToken, authJwt.isModerator],
+    //     controller.moderatorBoard,
+    // );
+
+    // app.get(
+    //     '/api/test/admin',
+    //     [authJwt.verifyToken, authJwt.isAdmin],
+    //     controller.adminBoard,
+    // );
+};

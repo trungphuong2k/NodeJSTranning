@@ -17,7 +17,6 @@ const corsOptions = {
     methods: ['POST', 'GET', 'PUT', 'PATCH', 'DELETE'],
     exposedHeaders: ['Content-Length', 'Authorization', 'Accept-Language'],
     credentials: true,
-
 };
 
 app.use(cors(corsOptions));
